@@ -1,0 +1,40 @@
+<?php
+
+/*
+ * This file has been created by developers from BitBag.
+ * Feel free to contact us once you face any issues or want to start
+ * You can find more information about us on https://bitbag.io and write us
+ * an email on hello@bitbag.io.
+ */
+
+declare(strict_types=1);
+
+namespace BitBag\SyliusMultipleProductImageUploader\Twig\Extension;
+
+use BitBag\SyliusMultipleProductImageUploader\Entity\Product\ProductInterface;
+use Sylius\Component\Core\Model\ImageInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
+
+final class ProductImageResolverExtension extends AbstractExtension
+{
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction('bitbag_product_image_resolver', [$this, 'getProductImageByProductAndType']),
+        ];
+    }
+
+    public function getProductImageByProductAndType(ProductInterface $product, string $type): ?ImageInterface
+    {
+        $images = $product->getImages();
+
+        foreach ($images as $image) {
+            if ($image->getType() === $type) {
+                return $image;
+            }
+        }
+
+        return null;
+    }
+}
