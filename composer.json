@@ -9,7 +9,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
-        "sylius/sylius": "~1.8.0 || ~1.9.0"
+        "sylius/sylius": "~1.8.0 || ~1.9.0",
+        "symfony/ux-dropzone": "^1.3",
+        "symfony/webpack-encore-bundle": "^1.11"
     },
     "conflict": {
         "api-platform/core": "^2.6"
@@ -55,7 +57,7 @@
     "autoload": {
         "psr-4": {
             "BitBag\\SyliusMultipleProductImageUploader\\": "src/",
-            "Tests\\BitBag\\SyliusMultipleProductImageUploader\\": "tests/"
+            "Tests\\BitBag\\SyliusMultipleProductImageUploader\\": ["tests/", "tests/Application/src"]
         }
     },
     "autoload-dev": {

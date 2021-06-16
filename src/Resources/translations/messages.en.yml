@@ -1,0 +1,9 @@
+bitbag_sylius_multiple_product_image:
+  media:
+    dropzone_upload_placeholder: 'Drag and drop or browse'
+    type:
+      product_background: 'Product background'
+      tail_package_thumbnail_homepage: 'Tail Package thumbnail homepage'
+      tail_package_thumbnail_product: 'Tail Package thumbnail product'
+      wide_banner_thumbnail_catalog: 'Wide Banner thumbnail catalog'
+      products_list_miniature: 'Product list miniature'

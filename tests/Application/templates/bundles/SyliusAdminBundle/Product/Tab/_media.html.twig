@@ -1,0 +1,20 @@
+{% form_theme form '@SyliusAdmin/Product/Tab/productImageTheme.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('image-uploader-style-entry', null, 'admin') }}
+{% endblock %}
+
+<div class="ui tab" data-tab="media">
+    {{ form_row(form.file) }}
+    <h3 class="ui top attached header">{{ 'sylius.ui.media'|trans }}</h3>
+
+    <div class="ui attached segment">
+        {{ form_row(form.images, {'label': false}) }}
+
+        {{ sylius_template_event(['sylius.admin.product.' ~ action ~ '.tab_media', 'sylius.admin.product.tab_media'], {'form': form}) }}
+    </div>
+</div>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('image-uploader-entry', null, 'admin') }}
+{% endblock %}
