@@ -21,16 +21,20 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [7.4, 7.3]
+                php: [7.4]
                 symfony: [^4.4, ^5.2]
-                sylius: [~1.8.0, ~1.9.0]
-                node: [10.x]
+                sylius: [~1.8.0, ~1.9.0, ~1.10.0]
+                node: [12.x]
                 mysql: [5.7]
 
                 exclude:
+                    # sylius 1.8 exluded because in code exist stricted properties types
                     -
-                        sylius: ~1.8.0
-                        symfony: ^5.2
+                      sylius: ~1.8.0
+                      symfony: ^5.2
+                    -
+                      sylius: ~1.8.0
+                      php: 7.4
 
         env:
             APP_ENV: test
@@ -110,7 +114,7 @@ jobs:
 
             -
                 name: Install PHP dependencies
-                run: composer install --no-interaction
+                run: composer install --no-interaction --no-scripts
 
             -
                 name: Get Yarn cache directory
@@ -147,10 +151,6 @@ jobs:
                 run: (cd tests/Application && bin/console cache:warmup -vvv)
 
             -
-                name: Load fixtures in test application
-                run: (cd tests/Application && bin/console sylius:fixtures:load -n)
-
-            -
                 name: Validate composer.json
                 run: composer validate --ansi --strict
 
@@ -159,18 +159,9 @@ jobs:
                 run: (cd tests/Application && bin/console doctrine:schema:validate)
 
             -
-                name: Run PHPStan
-                run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+                name: Run PHPSpec
+                run: vendor/bin/phpspec run --ansi -f progress --no-interaction
 
             -
-                name: Run Psalm
-                run: vendor/bin/psalm
-
-            -
-                name: Upload Behat logs
-                uses: actions/upload-artifact@v2
-                if: failure()
-                with:
-                    name: Behat logs
-                    path: etc/build/
-                    if-no-files-found: ignore
+                name: Run PHPUnit
+                run: vendor/bin/phpunit --colors=always
