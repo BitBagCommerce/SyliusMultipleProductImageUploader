@@ -41,7 +41,6 @@ final class ProductImageTypeExtension extends AbstractTypeExtension
     {
         return [
             'bitbag_sylius_multiple_product_image.media.type.product_background' => ProductInterface::BACKGROUND_PRODUCT,
-            'bitbag_sylius_multiple_product_image.media.type.tail_package_thumbnail_homepage' => ProductInterface::TAIL_PACKAGE_THUMBNAIL_HOMEPAGE,
             'bitbag_sylius_multiple_product_image.media.type.tail_package_thumbnail_product' => ProductInterface::TAIL_PACKAGE_THUMBNAIL_PRODUCT,
             'bitbag_sylius_multiple_product_image.media.type.wide_banner_thumbnail_catalog' => ProductInterface::WIDE_BANNER_THUMBNAIL_CATALOG,
             'bitbag_sylius_multiple_product_image.media.type.products_list_miniature' => ProductInterface::PRODUCT_MINIATURE,
