@@ -28,7 +28,7 @@ export default class extends Controller {
         collectionsElements.forEach(seletor => {
             if (null !== seletor) {
                 const imageDiv = seletor.querySelector('[id="dropzone-image-view"]');
-                if (imageDiv.firstChild) {
+                if (null !== imageDiv && imageDiv.firstChild) {
                     seletor.remove();
                 }
             }
