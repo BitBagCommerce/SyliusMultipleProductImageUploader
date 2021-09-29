@@ -6,3 +6,4 @@ bitbag_sylius_multiple_product_image:
       tail_package_thumbnail_product: 'Tall Capsule'
       wide_banner_thumbnail_catalog: 'Featured Screenshot'
       products_list_miniature: 'Main Capsule'
+      tall_search_catalog: 'Tall search catalog'

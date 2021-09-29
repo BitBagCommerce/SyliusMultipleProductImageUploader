@@ -44,6 +44,7 @@ final class ProductImageTypeExtension extends AbstractTypeExtension
             'bitbag_sylius_multiple_product_image.media.type.tail_package_thumbnail_product' => ProductInterface::TAIL_PACKAGE_THUMBNAIL_PRODUCT,
             'bitbag_sylius_multiple_product_image.media.type.wide_banner_thumbnail_catalog' => ProductInterface::WIDE_BANNER_THUMBNAIL_CATALOG,
             'bitbag_sylius_multiple_product_image.media.type.products_list_miniature' => ProductInterface::PRODUCT_MINIATURE,
+            'bitbag_sylius_multiple_product_image.media.type.tall_search_catalog' => ProductInterface::TALL_SEARCH_CATALOG,
         ];
     }
 }

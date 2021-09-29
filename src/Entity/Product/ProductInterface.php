@@ -25,6 +25,8 @@ interface ProductInterface extends BaseProductInterface
 
     public const PRODUCT_MINIATURE = 'PRODUCT_MINIATURE';
 
+    public const TALL_SEARCH_CATALOG = 'TALL_SEARCH_CATALOG';
+
     public function getFile(): ?array;
 
     public function setFile(?\SplFileInfo $file): void;
