@@ -13,7 +13,7 @@ namespace BitBag\SyliusMultipleProductImageUploader\Entity\Product;
 
 trait ProductTrait
 {
-    protected ?array $file;
+    protected ?array $file = null;
 
     public function getFile(): ?array
     {
