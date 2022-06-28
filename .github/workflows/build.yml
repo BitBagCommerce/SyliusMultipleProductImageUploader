@@ -28,7 +28,6 @@ jobs:
                 mysql: [5.7]
 
                 exclude:
-                    # sylius 1.8 exluded because in code exist stricted properties types
                     - sylius: ~1.10.0
                       symfony: ^4.4
 
