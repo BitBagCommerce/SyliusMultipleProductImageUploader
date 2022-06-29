@@ -31,6 +31,9 @@ jobs:
                     - sylius: ~1.10.0
                       symfony: ^4.4
 
+                    - sylius: ~1.10.0
+                      symfony: ^4.4
+
                     - sylius: ~1.11.0
                       php: 7.4
 
