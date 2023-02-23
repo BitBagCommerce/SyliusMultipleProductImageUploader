@@ -1,0 +1,74 @@
+Arguments: 
+  /Users/kris/.nvm/versions/node/v14.20.0/bin/node /usr/local/Cellar/yarn/1.22.17_1/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/kris/.nvm/versions/node/v14.20.0/bin:/usr/local/opt/node@14/bin:/usr/local/opt/php@8.0/sbin:/usr/local/opt/php@8.0/bin:/usr/local/opt/php@7.4/sbin:/usr/local/opt/php@7.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/kris/projects/bb/SyliusMultipleProductImageUploader/node_modules/.bin:/usr/local/sbin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.20.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/kris/projects/bb/SyliusMultipleProductImageUploader/tests/Application/package.json: Unexpected token } in JSON at position 914
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.17_1/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "dependencies": {
+      "@babel/polyfill": "^7.0.0",
+      "chart.js": "^3.7.1",
+      "jquery": "^3.5.0",
+      "dropzone": "^5.9.2",
+      "jquery.dirtyforms": "^2.0.0",
+      "lightbox2": "^2.9.0",
+      "semantic-ui-css": "^2.2.0",
+      "slick-carousel": "^1.8.1"
+    },
+    "devDependencies": {
+      "@symfony/stimulus-bridge": "^2.1.0",
+      "@symfony/webpack-encore": "^1.6.1",
+      "babel-core": "^6.26.3",
+      "babel-plugin-external-helpers": "^6.22.0",
+      "babel-plugin-module-resolver": "^3.1.1",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-register": "^6.26.0",
+      "dedent": "^0.7.0",
+      "eslint": "^4.19.1",
+      "eslint-config-airbnb-base": "^12.1.0",
+      "eslint-import-resolver-babel-module": "^4.0.0",
+      "eslint-plugin-import": "^2.11.0",
+      "merge-stream": "^1.0.0",
+      "sass": "^1.39.2",
+      "sass-loader": "^12.1.0",
+      "stimulus": "^2.0.0",
+    },
+    "scripts": {
+      "dev": "yarn encore dev",
+      "watch": "yarn encore dev --watch",
+      "prod": "yarn encore prod",
+      "lint": "yarn lint:js",
+      "lint:js": "eslint gulpfile.babel.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Sylius/Sylius.git"
+    },
+    "author": "Paweł Jędrzejewski",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
