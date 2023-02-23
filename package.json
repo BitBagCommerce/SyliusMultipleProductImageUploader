@@ -1,6 +1,8 @@
 {
   "devDependencies": {
+    "@symfony/ux-dropzone": "file:vendor/symfony/ux-dropzone/Resources/assets",
     "css-loader": "^5.2.6",
+    "stimulus": "^2.0.0",
     "style-loader": "^2.0.0"
   }
 }
