@@ -1,9 +1,0 @@
-{
-  "entrypoints": {
-    "shop-entry": {
-      "js": [
-        "/build/shop/shop-entry.js"
-      ]
-    }
-  }
-}

@@ -132,6 +132,11 @@ jobs:
                 run: (cd tests/Application && cp package.json.\${{ matrix.sylius }}.dist package.json)
 
             -
+                name: Copy sylius_controller.js.dist to js assets
+                if: matrix.sylius != ''
+                run: (cd tests/Application/assets/admin/js && cp sylius_controller.js.\${{ matrix.sylius }}.dist controllers/sylius_controller.js)
+
+            -
                 name: Install JS dependencies
                 run: (cd tests/Application && yarn install)
 
