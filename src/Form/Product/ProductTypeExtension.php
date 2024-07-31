@@ -27,7 +27,7 @@ final class ProductTypeExtension extends AbstractTypeExtension
             ->add('file', DropzoneType::class, [
                 'attr' => [
                     'data-controller' => 'sylius',
-                    'placeholder' => 'bitbag_sylius_multiple_product_image.media.dropzone_upload_placeholder'
+                    'placeholder' => 'bitbag_sylius_multiple_product_image.media.dropzone_upload_placeholder',
                 ],
                 'multiple' => true,
             ])
