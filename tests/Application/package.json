@@ -23,11 +23,13 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-import": "^2.11.0",
+    "fast-async": "^6.3.7",
     "merge-stream": "^1.0.0",
     "sass": "^1.39.2",
     "sass-loader": "^12.1.0",
     "@hotwired/stimulus": "^3.0",
     "upath": "^1.1.0",
+    "webpack": "^5.76.1",
     "yargs": "^6.4.0"
   },
   "scripts": {

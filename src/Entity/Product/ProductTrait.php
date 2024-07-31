@@ -27,6 +27,6 @@ trait ProductTrait
 
     public function hasFile(): bool
     {
-        return count($this->file) > 0;
+        return 0 < count($this->file);
     }
 }
