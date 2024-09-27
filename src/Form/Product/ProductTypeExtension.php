@@ -43,9 +43,13 @@ final class ProductTypeExtension extends AbstractTypeExtension
 
                 $file = current($files);
                 foreach ($product->getImages() as $image) {
-                    if (null === $image->getId()) {
-                        $image->setFile($file);
-                        $file = next($files);
+                    try {
+                        if (null === $image->getId()) {
+                            $image->setFile($file);
+                            $file = next($files);
+                        }
+                    } catch (\Exception $exception) {
+                        throw New \Exception('Error! Too many photos were uploaded.');
                     }
                 }
             })
