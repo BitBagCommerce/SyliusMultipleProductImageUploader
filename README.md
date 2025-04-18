@@ -42,6 +42,15 @@ At BitBag we do believe in open source. However, we are able to do it just beacu
 $ composer require bitbag/sylius-multiple-product-image-uploader
 ```
 
+Add plugin dependency to your `config/bundles.php` file:
+
+```php
+return [
+    ...
+    BitBag\SyliusMultipleProductImageUploader\BitBagSyliusMultipleProductImageUploader::class => ['all' => true],
+];
+```
+
 Import required config in your `config/packages/_sylius.yaml` file:
 ```yaml
 # config/packages/_sylius.yaml
@@ -53,7 +62,7 @@ imports:
 ```
 
 
-Add traits to your Customer entity class, when You don't use annotation.
+Add traits to your Product entity class, when You don't use annotation.
 
 ```php
 <?php
@@ -99,7 +108,7 @@ class Product extends BaseProduct implements ProductInterface
     * @var array
     * @ORM\Column(type="string", nullable=true)
     */   
-    protected $file;
+    protected ?array $file = null;
 }
 ```
 
@@ -119,12 +128,12 @@ If you don't use annotations, define new Entity mapping inside your src/Resource
 </doctrine-mapping>
 ```
 
-Create also interface, which is implemented by customer entity
+Create also interface.
 
 ```php
 <?php
 
-namespace App\Entity\Customer;
+namespace App\Entity\Product;
 
 use BitBag\SyliusMultipleProductImageUploader\Entity\Product\ProductInterface as BitBagProductInterface;
 
@@ -132,7 +141,7 @@ interface ProductInterface extends BitBagProductInterface
 {
 }
 ```
-Override Customer resource:
+Override product resource:
 
 ```yaml
 # config/packages/_sylius.yaml
@@ -142,7 +151,50 @@ sylius_product:
   resources:
     product:
       classes:
-        model: Tests\BitBag\SyliusMultipleProductImageUploader\Entity\Product\Product
+        model: App\Entity\Product\Product
+```
+
+Copy templates from the plugin to your project:
+```bash
+$ cp -R vendor/bitbag/sylius-multiple-product-image-uploader/tests/Application/templates/bundles/* templates/bundles/
+```
+(Or manually move the html code to the `templates/bundles/` directory, if you already have any of these templates overwritten in your project.)
+
+Install js packages:
+```bash
+$ yarn add dropzone@5.9
+$ yarn add hotwired/stimulus@3.0
+$ yarn add symfony/stimulus-bridge@3.0
+```
+
+Import plugin `webpack.config.js` file:
+```javascript
+const [ bitbagMultipleProductImageUploaderAdmin ] = require('./vendor/bitbag/sylius-multiple-product-image-uploader/webpack.config.js');
+...
+
+module.exports = [.. bitbagMultipleProductImageUploaderAdmin ];
+```
+
+Add new packages in `config/packages/assets.yaml`
+
+```yaml
+framework:
+  assets:
+    packages:
+      ...
+      bitbag_multiple_images_uploader:
+        json_manifest_path: '%kernel.project_dir%/public/build/bitbag/sylius-multiple-product-image-uploader/admin/manifest.json'
+
+```
+
+Add new build paths in `config/packages/webpack_encore.yml`
+
+```yaml
+webpack_encore:
+  output_path: '%kernel.project_dir%/public/build/default'
+  builds:
+    ...
+    bitbag_multiple_images_uploader: '%kernel.project_dir%/public/build/bitbag/sylius-multiple-product-image-uploader/admin'
 ```
 
 **Note:** If you are running it on production, add the `-e prod` flag to this command.
@@ -158,22 +210,15 @@ $ bin/console debug:container | grep bitbag_sylius_multiple_product_image_upload
 
 ## Testing
 ```bash
-$ composer install
+$ composer install --no-scripts
 $ cd tests/Application
-```
-
-Copy `package.json.~1.xx.dist` file to `package.json` for specific version of Sylius (example for 1.12.0):
-```bash
-$ cp package.json.\~1.12.dist package.json
-```
-
-Then:
-
-```bash
-$ yarn install
-$ yarn build
+$ bin/console cache:warmup -e test
 $ bin/console assets:install public -e test
+$ yarn install
+$ yarn encore dev
+$ bin/console doctrine:database:create -e test
 $ bin/console doctrine:schema:create -e test
+$ bin/console sylius:fixtures:load -e test
 $ bin/console server:run 127.0.0.1:8080 -d public -e test
 $ open http://localhost:8080
 $ cd ../..

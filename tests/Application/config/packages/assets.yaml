@@ -1,0 +1,9 @@
+framework:
+  assets:
+    packages:
+      shop:
+        json_manifest_path: '%kernel.project_dir%/public/build/shop/manifest.json'
+      admin:
+        json_manifest_path: '%kernel.project_dir%/public/build/admin/manifest.json'
+      bitbag_multiple_images_uploader:
+        json_manifest_path: '%kernel.project_dir%/public/build/bitbag/sylius-multiple-product-image-uploader/admin/manifest.json'
