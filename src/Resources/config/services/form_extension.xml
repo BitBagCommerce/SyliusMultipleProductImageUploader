@@ -4,8 +4,5 @@
         <service id="bitbag_sylius_multiple_product_image_uploader.form.product.product_type_extension" class="BitBag\SyliusMultipleProductImageUploader\Form\Product\ProductTypeExtension">
             <tag name="form.type_extension" extended_type="Sylius\Bundle\ProductBundle\Form\Type\ProductType"/>
         </service>
-        <service id="bitbag_sylius_multiple_product_image_uploader.form.product.product_image_type_extension" class="BitBag\SyliusMultipleProductImageUploader\Form\Product\ProductImageTypeExtension">
-            <tag name="form.type_extension" extended_type="Sylius\Bundle\CoreBundle\Form\Type\Product\ProductImageType"/>
-        </service>
     </services>
 </container>
