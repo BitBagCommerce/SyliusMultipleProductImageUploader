@@ -1,7 +1,7 @@
 {% form_theme form '@SyliusAdmin/Product/Tab/productImageTheme.html.twig' %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('image-uploader-style-entry', null, 'admin') }}
+    {{ encore_entry_link_tags('bitbag-sylius-multiple-product-image-uploader-admin-css', null, 'bitbag_multiple_images_uploader') }}
 {% endblock %}
 
 <div class="ui tab" data-tab="media">
@@ -16,5 +16,5 @@
 </div>
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('image-uploader-entry', null, 'admin') }}
+    {{ encore_entry_script_tags('bitbag-sylius-multiple-product-image-uploader-admin', null, 'bitbag_multiple_images_uploader') }}
 {% endblock %}
